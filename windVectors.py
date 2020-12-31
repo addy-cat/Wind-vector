@@ -1,5 +1,6 @@
 import requests
 import json
+import math
 
 
 coordinate_file = open("coordinates.txt", "r")
@@ -33,27 +34,57 @@ for coords in coordinates:
 		#the wind_speeds array defined on line 12
 		wind_speeds.append(response_gridpoints[0]['windSpeed'])
 		wind_direction.append(response_gridpoints[0]['windDirection'])
+
+	break
 	
+
+
+#Right now the wind directions are in cardinal mode. Need to change these
+#to degrees so we can make wind vectors. Overwrite the previous direction array:
+
+directions = []
+
+for direction in wind_direction:
+        if direction == 'N':
+                directions.append(0)
+        elif direction == 'E':
+                directions.append(90)
+        elif direction == 'S':
+                directions.append(180)
+        elif direction == 'W':
+                directions.append(270)
+        elif direction == 'NE':
+                directions.append(45)
+        elif direction == 'SE':
+                directions.append(135)
+        elif direction == 'SW':
+                directions.append(225)
+        elif direction == 'NW':
+                directions.append(315)
+        elif direction == 'WSW':
+                directions.append(248)
+        elif direction == 'SSW':
+                directions.append(203)
+        elif direction == 'WNW':
+                directions.append(293)
+        elif direction == 'NNW':
+                directions.append(338)
+        elif direction == 'NNE':
+                directions.append(23)
+        elif direction == 'ENE':
+                directions.append(68)
+        elif direction == 'ESE':
+                directions.append(113)
+        elif direction == 'SSE':
+                directions.append(158)
+	
+
+
 
 
 print(wind_speeds)
-print(wind_direction)
-
-'''
-response = requests.get("https://api.weather.gov/gridpoints/PQR/62,81/forecast")
-
-print(response.status_code)
-
-windspeeds = response.json()['properties']
-windspeeds = windspeeds['periods']
+print(directions)
 
 
-windspeeds1 = []
 
-for d in windspeeds:
-	speed = d['windSpeed']
-	windspeeds1.append(speed)
 
-print(windspeeds1)
-'''
-	
