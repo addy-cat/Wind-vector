@@ -1,1 +1,1 @@
-= Wind vectors = 
+# Wind vectors
