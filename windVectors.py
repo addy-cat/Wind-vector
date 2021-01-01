@@ -1,14 +1,14 @@
 import requests
 import json
 import math
+import turtle
 
 
 coordinate_file = open("coordinates.txt", "r")
 for line in coordinate_file:
 	coordinates = line[0:-1].split(' ')
 
-
-#print(coordinates[7])
+print(len(coordinates))
 
 wind_speeds = []
 wind_direction = []
@@ -32,11 +32,17 @@ for coords in coordinates:
 		response_gridpoints = response_gridpoints['periods']
 		#We have now found location of "windSpeed", need to add this data to
 		#the wind_speeds array defined on line 12
-		wind_speeds.append(response_gridpoints[0]['windSpeed'])
+		before_parse_speed = response_gridpoints[0]['windSpeed'][0:-4]
+		if len(before_parse_speed) <= 5:
+			wind_speeds.append(before_parse_speed)
+		else:
+			speed_components = before_parse_speed.split(' ')
+			first_num = speed_components[0]
+			sec_num = speed_components[2]
+			wind_speeds.append(str((int(first_num) + int(sec_num))/2))
+		
 		wind_direction.append(response_gridpoints[0]['windDirection'])
 
-	break
-	
 
 
 #Right now the wind directions are in cardinal mode. Need to change these
@@ -84,6 +90,31 @@ for direction in wind_direction:
 
 print(wind_speeds)
 print(directions)
+print(len(wind_speeds))
+print(len(directions))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
