@@ -47,7 +47,7 @@ for coords in coordinates:
 		#if API returns a 500, 503, 404 or anything other than
 		#200, put in a zero for that call because we don't want it
 		wind_speeds.append(0)
-		wind_direction.append(0)
+		wind_direction.append('N')
 
 
 #Right now the wind directions are in cardinal mode. Need to change these
