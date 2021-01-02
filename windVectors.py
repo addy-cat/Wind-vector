@@ -34,15 +34,20 @@ for coords in coordinates:
 		#the wind_speeds array defined on line 12
 		before_parse_speed = response_gridpoints[0]['windSpeed'][0:-4]
 		if len(before_parse_speed) <= 5:
-			wind_speeds.append(before_parse_speed)
+			wind_speeds.append(int(before_parse_speed))
 		else:
 			speed_components = before_parse_speed.split(' ')
 			first_num = speed_components[0]
 			sec_num = speed_components[2]
-			wind_speeds.append(str((int(first_num) + int(sec_num))/2))
+			#find average of the two wind speeds
+			wind_speeds.append((int(first_num) + int(sec_num))/2)
 		
 		wind_direction.append(response_gridpoints[0]['windDirection'])
-
+	else:
+		#if API returns a 500, 503, 404 or anything other than
+		#200, put in a zero for that call because we don't want it
+		wind_speeds.append(0)
+		wind_direction.append(0)
 
 
 #Right now the wind directions are in cardinal mode. Need to change these
@@ -87,7 +92,8 @@ for direction in wind_direction:
 
 
 
-
+#Print the arrays so we can see the speeds and direction, and 
+#print the number of speeds and directions
 print(wind_speeds)
 print(directions)
 print(len(wind_speeds))
