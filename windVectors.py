@@ -1,3 +1,13 @@
+#Some helpful notes about understanding the data:
+'''
+When the vectors are long, this cooresponds to faster winds. Short vectors coorespond to slower winds. This is the magnitude of the vector.
+As for the colors, ...?
+I dont know much about the API but I assume that super high winds may give more 404's? 
+
+
+'''
+
+import numpy as np
 import requests
 import json
 import math
@@ -89,6 +99,9 @@ for direction in wind_direction:
         elif direction == 'SSE':
                 directions.append(158)
 	
+np.savetxt("wind_speeds.txt", np.array(wind_speeds), fmt="%s")
+np.savetxt("directions.txt", np.array(directions), fmt="%s")
+np.savetxt("coordinates_parsed.txt", np.array(coordinates), fmt="%s")
 
 
 

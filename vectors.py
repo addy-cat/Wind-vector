@@ -1,13 +1,36 @@
 import turtle 
-from windVectors import *
-from turtle import Turtle, Screen
+
+#For now comment out the file that gets us data, because we have it all
+#in a textfile for now. When you want the data this file uses to be updated,
+#be sure to uncomment this out and get new data from windVectors:
+#from windVectors import *
+
+wind_speeds = []
+directions = []
+coordinates = []
+
+#Open the three files containing the data we need to draw vectors:
+wind_speed_file = open("wind_speeds.txt", "r")
+directions_file = open("directions.txt", "r")
+coordinates_parsed_file = open("coordinates_parsed.txt", "r")
+
+for line in wind_speed_file:
+	wind_speeds.append(float(line[0:-1]))
+
+for line in directions_file:
+	directions.append(int(line[0:-1]))
+
+for line in coordinates_parsed_file:
+	coordinates.append(line[0:-1])
 
 vectors = []
 
-screen = Screen()
-#screen.setup(900, 800)
 
-turtle.setworldcoordinates((44.845110 - 45) * 100, (-124.012927 + 121) * 100, (45.753357 - 45) * 100, (-121.990759 + 121) * 100)
+
+#turtle.setworldcoordinates((44.845110 - 45) * 100, (-124.012927 + 121) * 100, (45.753357 - 45) * 100, (-121.990759 + 121) * 100)
+
+turtle.setworldcoordinates(-100, -60, 60, -30)
+
 
 for i in range(len(wind_speeds) - 1):
 	vectors.append(turtle.Turtle())
@@ -45,16 +68,16 @@ for i in range(len(wind_speeds) - 1):
 	elif directions[i] == 158:
 		vector.color("royal blue")
 
-	vector.hideturtle()
+#	vector.hideturtle()
 	vector.speed(0)
 	coord_components = coordinates[i].split(',')
-	x = int((float(coord_components[0]) - 45) * 1000) - 200
-	y = int((float(coord_components[1]) + 122) * 1000)
+	y = int((float(coord_components[0]) - 45) * 1000) - 330
+	x = int((float(coord_components[1]) + 122) * 1000) + 1000
 	print("Coord components: ", coord_components, " X coordinate: ", x, " Y coordinate: ", y)
 	vector.penup()
 	vector.setpos(x,y)
-	vector.left(directions[i])
+	vector.left(directions[i] + 90)
 	vector.pendown()
-	vector.forward(int(wind_speeds[i]) * 3)
+	vector.forward(int(wind_speeds[i]) * 5)
 
 turtle.done()
