@@ -1,5 +1,9 @@
 import turtle 
 
+turtle.bgpic("background.gif")
+
+
+
 #For now comment out the file that gets us data, because we have it all
 #in a textfile for now. When you want the data this file uses to be updated,
 #be sure to uncomment this out and get new data from windVectors:
@@ -25,11 +29,12 @@ for line in coordinates_parsed_file:
 
 vectors = []
 
+turtle.setworldcoordinates(-150, -60, 40, -30)
+
 
 
 #turtle.setworldcoordinates((44.845110 - 45) * 100, (-124.012927 + 121) * 100, (45.753357 - 45) * 100, (-121.990759 + 121) * 100)
 
-turtle.setworldcoordinates(-100, -60, 60, -30)
 
 
 for i in range(len(wind_speeds) - 1):
@@ -71,13 +76,13 @@ for i in range(len(wind_speeds) - 1):
 #	vector.hideturtle()
 	vector.speed(0)
 	coord_components = coordinates[i].split(',')
-	y = int((float(coord_components[0]) - 45) * 1000) - 330
-	x = int((float(coord_components[1]) + 122) * 1000) + 1000
+	y = int((float(coord_components[0]) - 45) * 1000) - 330;
+	x = int((float(coord_components[1]) + 122) * 1000) + 1000;
 	print("Coord components: ", coord_components, " X coordinate: ", x, " Y coordinate: ", y)
 	vector.penup()
 	vector.setpos(x,y)
 	vector.left(directions[i] + 90)
 	vector.pendown()
-	vector.forward(int(wind_speeds[i]) * 5)
+	vector.forward(int(wind_speeds[i]) * 4)
 
 turtle.done()
