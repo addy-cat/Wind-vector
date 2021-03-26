@@ -10,6 +10,8 @@ All vectors are placed onto this grid based on specific coordinate values in the
 
 As for the map, this is a screenshot of the map data available from ArcGIS. This is a screenshot of Northwest Oregon (it might look like the whole state but its just a little chunk!).
 
+Theoretically I could have made many more vectors than shown below, maybe even for the whole US, you would simply need to specify more coordinates in the included coordinates.txt file. I felt this was enough vectors to get the message across.
+
 Here is an example run from 3/25/2021:
 
 ![Wind Vectors](windVectors.png)
