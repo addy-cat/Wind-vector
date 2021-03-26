@@ -8,6 +8,8 @@ The directionless, speed-less red vectors that can be seen off the coast in the 
 
 All vectors are placed onto this grid based on specific coordinate values in the form of longitudes and latitudes. Using the National Weather Service API, one could get any collection of coordinates from anywhere in the US. 
 
+As for the map, this is a screenshot of the map data available from ArcGIS. This is a screenshot of Northwest Oregon (it might look like the whole state but its just a little chunk!).
+
 Here is an example run from 3/25/2021:
 
 ![Wind Vectors](windVectors.png)
