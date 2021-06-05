@@ -1,11 +1,3 @@
-#Some helpful notes about understanding the data:
-'''
-When the vectors are long, this cooresponds to faster winds. Short vectors coorespond to slower winds. This is the magnitude of the vector.
-As for the colors, ...?
-I dont know much about the API but I assume that super high winds may give more 404's? 
-
-
-'''
 
 import numpy as np
 import requests
