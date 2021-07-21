@@ -6,7 +6,7 @@ turtle.bgpic("background.gif")
 
 #For now comment out the file that gets us data, because we have it all
 #in a textfile for now. When you want the data this file uses to be updated,
-#be sure to uncomment this out and get new data from windVectors:
+#be sure to uncomment this and get new data from windVectors:
 #from windVectors import *
 
 wind_speeds = []
