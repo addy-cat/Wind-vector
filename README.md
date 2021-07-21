@@ -1,6 +1,6 @@
 # Wind vectors
 
-This program visualizes wind velocity vectors onto a map of Northwest Oregon. These vectors are made up of a speed and direction component, taken from the National Weather Service API. Each vector exists at a specific coordinate on a grid overlaid onto the map. As of right now, everything I wanted to do is done. But this program is sort of ugly... learning OpenGL to make prettier models right now!
+This program visualizes wind velocity vectors onto a map of Northwest Oregon (bottom left is near Lincoln City Oregon, top right is Southern Washington). These vectors are made up of a speed and direction component, taken from the National Weather Service API. Each vector exists at a specific coordinate on a grid overlaid onto the map. As of right now, everything I wanted to do is done. But this program is sort of ugly... learning OpenGL to make prettier models right now!
 
 This program uses Python3 and the "turtles" library to draw the vectors. This "turtles" library is really mainly a tool used for education and introductory Python practice. It is basically impossible to make the vectors look or act any nicer because this library is very basic. This is the primary reason I will not be updating the project as I want to move on to learning OpenGL for modelling my data. However, using this library was a great introduction to modelling data.
 
