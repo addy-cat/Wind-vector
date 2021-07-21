@@ -20,7 +20,7 @@ for coords in coordinates:
 	#find the forecast component of the above file (have to go thru properties first):
 	response = response.json()['properties']
 	response = response['forecast']
-	#new API call on response, where response is now in the correct URL format because of line 16
+	#new API call on response, where response is now in the correct URL format
 	response_gridpoints = requests.get(response)
 
 	#The above line will also retrieve coordinates that are in the ocean,
